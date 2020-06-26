@@ -15,6 +15,10 @@ bot.on('message', message => {//pingpong
     if (message.content === ('Ping')){
       message.channel.send('Pong !')
     }
+    //tom 
+if (message.content === ('Kaze')){
+      message.channel.send(`I'm Kaze Quest !`)
+    }
 })
 
 
