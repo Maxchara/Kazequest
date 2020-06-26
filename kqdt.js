@@ -7,7 +7,7 @@ bot.on('ready', function () {
 })
 
 bot.login(process.env.TOKEN)
-  client.user.setPresence({
+bot.user.setPresence({
       activity: {
           name: "Prefix : !kq",  
           type : "PLAYING",
