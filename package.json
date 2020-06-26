@@ -1,0 +1,14 @@
+{
+  "name": "program",
+  "version": "1.0.0",
+  "main": "kqdt.js",
+  "scripts": {
+    "star": "node kqdt.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
