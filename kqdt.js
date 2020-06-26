@@ -7,13 +7,6 @@ bot.on('ready', function () {
 })
 
 bot.login(process.env.TOKEN)
-bot.user.setPresence({
-      activity: {
-          name: "Prefix : !kq",  
-          type : "PLAYING",
-      }
-  })
-
 
 bot.on('message', message => {//pingpong
     if (message.content === ('ping') ) {
