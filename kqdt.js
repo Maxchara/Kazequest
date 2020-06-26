@@ -14,7 +14,7 @@ bot.login(process.env.TOKEN)
       }
   })
 
-}
+
 bot.on('message', message => {//pingpong
     if (message.content === ('ping') ) {
       message.channel.send('pong !')
