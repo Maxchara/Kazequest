@@ -19,7 +19,7 @@ bot.on('message', message => {//pingpong
     if (message.content === ('Ping')){
       message.channel.send('Pong !')
     }
-    if (message.content === ('!kq money') {
+    if (message.content === ('!kq money')) {
  message.channel.send(`**Wallet :** ${Wallet} coins\n**Bank :** ${Bank} coins\n**Net worth :** ${Money} coins`)
 })
 
