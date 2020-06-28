@@ -22,7 +22,7 @@ bot.on('message', message => {//pingpong
     if (message.content === ('!kq money')) {
  message.channel.send(`**Wallet :** ${Wallet} coins\n**Bank :** ${Bank} coins\n**Net worth :** ${Money} coins`)
     }
-    if (messsage.content === ('!kq support')) { 
+    if (message.content === ('!kq support')) { 
     message.channel.send( {embed:{
         color: 0x0fecec,
         title : `You need some help ? Join our support server !`,
