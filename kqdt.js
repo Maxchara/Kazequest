@@ -23,21 +23,16 @@ bot.on('message', message => {//pingpong
  message.channel.send(`**Wallet :** ${Wallet} coins\n**Bank :** ${Bank} coins\n**Net worth :** ${Money} coins`)
     }
     if (messsage.content === ('!kq support')) { 
-message.channel.send({
-    embed: {
+    message.channel.send( {
         color: 0x0fecec,
         title : `You need some help ? Join our support server !`,
-        
-        fields: [
-            {
+        fields: [{
                 name: "Kaze Support",
                 value: "╚> https://discord.gg/WWTfvQ4 <╝"
-               
-        }
-  ]
-  }
-  })
-}
+        }]
+      } 
+    )
+    }
 })
 
 
