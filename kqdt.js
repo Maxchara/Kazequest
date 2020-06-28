@@ -20,7 +20,7 @@ bot.on('message', message => {                                 //start
     var newgamerid = message.author.id;
     var newgamername = message.author.username;
 
-    message.channel.send("```Here starts your quest.```");
+    message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !.```");
     profiles.push([newgamerid, newgamername , 0, 100, 0 , 0]); //de la forme  id, pseudo, xp, nextlvl, wallet, bank
     inventories.push([newgamerid, ' sword']);
     return
@@ -44,7 +44,7 @@ bot.on('message', message => {                                 //pingpong
         message.channel.send({embed: {
           color: 3447003,
           fields : [{
-          name : `Your items are:`,
+          name : `Here are your items :`,
           value : `${items_a_affiche}`}]
         }});
       }
@@ -59,8 +59,8 @@ bot.on('message', message => {                                 //pingpong
           color: 3447003,
           title : `**${profiles[i][1]}'s profile**`,
           description : `
-          **XP** : ${profiles[i][2]} 
-          **XP to reach the next lvl** : ${profiles[i][3]} 
+          **XP** : ${profiles[i][2]} xp points
+          **XP to reach the next lvl** : ${profiles[i][3]} xp points
           **Wallet** : ${profiles[i][4]} coins
           **Bank** : ${profiles[i][5]} coins
           **Net worth** : ${profiles[i][5]+profiles[i][4]} coins`
@@ -75,7 +75,7 @@ bot.on('message', message => {                                 //pingpong
      for( i = 0; i < inventories.length; i++){
       if (gamerid === (inventories[i][0]) ){
         inventories[i].push(' item1')
-        message.channel.send('```You get a new Item```')
+        message.channel.send('```You get a new Item ! Type “!kq items” to see it !```')
 
       }}
     return}                                          //________________________
@@ -86,7 +86,7 @@ bot.on('message', message => {                                 //pingpong
         for( i = 0; i < profiles.length; i++){
           if (gamerid === (profiles[i][0]) ){
             profiles[i][4]+= 2000
-            message.channel.send('```You received daily 2000 coins !```')
+            message.channel.send('```You received your daily 2000 coins ! Type “!kq profile to see your current amount of coins.```')
           }
         }
                                                    //_____________________
@@ -104,7 +104,3 @@ bot.on('message', message => {                                 //pingpong
   )
   }
 })                           //_______________________
-
-
-
-
