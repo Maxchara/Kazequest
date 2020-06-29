@@ -25,7 +25,7 @@ bot.on('message', message => {                                 //start
           break start};
       };
 
-    message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !.```");
+    message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !```");
     profiles.push([newgamerid, newgamername , 0, 100, 0 , 0]); //de la forme  id, pseudo, xp, nextlvl, wallet, bank
     inventories.push([newgamerid, ' sword']);
     return
@@ -47,7 +47,7 @@ bot.on('message', message => {                                 //pingpong
         for( j = 1; j < inventories[i].length; j++){
         items_a_affiche.push(inventories[i][j])}
         message.channel.send({embed: {
-          color: 3447003,
+          color: 0x00ff24,
           fields : [{
           name : `Here are your items :`,
           value : `${items_a_affiche}`}]
@@ -70,7 +70,7 @@ bot.on('message', message => {                                 //pingpong
     for( i = 0; i < profiles.length; i++){
       if (gamerid === (profiles[i][0]) ){
         message.channel.send({embed: {
-          color: 3447003,
+          color: 0x0cd3f8,
           title : `**${profiles[i][1]}'s profile**`,
           description : `
           **XP** : ${profiles[i][2]} xp points
@@ -100,13 +100,13 @@ bot.on('message', message => {                                 //pingpong
         for( i = 0; i < profiles.length; i++){
           if (gamerid === (profiles[i][0]) ){
             profiles[i][4]+= 2000
-            message.channel.send('```You received your daily 2000 coins ! Type “!kq profile to see your current amount of coins.```')
+            message.channel.send('```You received your daily 2000 coins ! Type “!kq profile" to see your current amount of coins.```')
           }
         }
                                                    //_____________________
 
     }
- if (message.content === ('!kq support')) {       //support
+ if (message.content === (command+'support')) {       //support
   message.channel.send( {embed:{
       color: 0x0fecec,
       title : `You need some help ? Join our support server !`,
