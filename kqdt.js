@@ -15,10 +15,15 @@ bot.login(process.env.TOKEN)
 
 
 bot.on('message', message => {                                 //start
-  if (message.content === (commande+'start') ) {
+  start : if (message.content === (commande+'start') ) {
     
     var newgamerid = message.author.id;
     var newgamername = message.author.username;
+      for( i = 0; i < profiles.length; i++){
+        if (profiles[i][0]===newgamerid){
+          message.channel.send('```You already have started a quest```')
+          break start};
+      };
 
     message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !.```");
     profiles.push([newgamerid, newgamername , 0, 100, 0 , 0]); //de la forme  id, pseudo, xp, nextlvl, wallet, bank
