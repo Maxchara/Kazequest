@@ -21,7 +21,7 @@ bot.on('message', message => {                                 //start
     var newgamername = message.author.username;
       for( i = 0; i < profiles.length; i++){
         if (profiles[i][0]===newgamerid){
-          message.channel.send('```You already have started a quest```')
+          message.channel.send('```Sorry but you already started a quest ! You can\'t have two profiles.```')
           break start};
       };
 
