@@ -56,7 +56,7 @@ bot.on('message', message => {                                 //pingpong
     }
   return}
                                                           //__________________
-  if (message.content === ('!kq help')){                  //help
+  if (message.content === (commande+'help')){                  //help
       message.channel.send({embed: {
           color: 3447003,
           title: "COMMANDS",
