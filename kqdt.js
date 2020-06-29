@@ -51,6 +51,15 @@ bot.on('message', message => {                                 //pingpong
     }
   return}
                                                           //__________________
+  if (message.content === ('!kq help')){                  //help
+      message.channel.send({embed: {
+          color: 3447003,
+          title: "COMMANDS",
+          fields : [{
+          name : `Quest commands :`,
+          value : "**!kq start** - Start your quest\n**!kq profile** - Show your quest profile\n**!kq daily** - Give you your daily reward"}]
+        }});
+    }                                                     //_________________
   if (message.content === (commande+'profile') ) {        //profile
     gamerid = message.author.id
     for( i = 0; i < profiles.length; i++){
