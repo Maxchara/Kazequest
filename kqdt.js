@@ -106,7 +106,7 @@ bot.on('message', message => {                                 //pingpong
                                                    //_____________________
 
     }
- if (message.content === (command+'support')) {       //support
+ if (message.content === (commande+'support')) {       //support
   message.channel.send( {embed:{
       color: 0x0fecec,
       title : `You need some help ? Join our support server !`,
