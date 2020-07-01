@@ -72,12 +72,7 @@ bot.on('message', message => {                                 //pingpong
         message.channel.send({embed: {
           color: 0x0cd3f8,
           title : `**${profiles[i][1]}'s profile**`,
-          description : `
-          **XP** : ${profiles[i][2]} xp points
-          **XP to reach the next lvl** : ${profiles[i][3]} xp points
-          **Wallet** : ${profiles[i][4]} coins
-          **Bank** : ${profiles[i][5]} coins
-          **Net worth** : ${profiles[i][5]+profiles[i][4]} coins`
+          description : `**XP** : ${profiles[i][2]} xp points\n**XP to reach the next lvl** : ${profiles[i][3]} xp points\n**Wallet** : ${profiles[i][4]} coins\n**Bank** : ${profiles[i][5]} coins\n**Net worth** : ${profiles[i][5]+profiles[i][4]} coins`
           
         }});
       }
