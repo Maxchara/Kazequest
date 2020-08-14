@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const commande = '!kq '
-
-var profiles =[]
-var inventories=[]
+const fs = require('fs');
+const profiles = JSON.parse(fs.readFileSync('Storage/SoulsStorage.json', 'utf8'));
+const inventories = JSON.parse(fs.readFileSync('Storage/Items.json', 'utf8'));
 
 
 bot.on('ready', function () {
@@ -28,6 +28,7 @@ bot.on('message', message => {                                 //start
     message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !```");
     profiles.push([newgamerid, newgamername , 0, 100, 0 , 0]); //de la forme  id, pseudo, xp, nextlvl, wallet, bank
     inventories.push([newgamerid, ' sword']);
+    save()
     return
   }
 })                                                             //________________
@@ -53,7 +54,7 @@ bot.on('message', message => {                                 //pingpong
           value : `${items_a_affiche}`}]
         }});
       }
-    }
+    }save()
   return}
                                                           //__________________
   if (message.content === (commande+'help')){                  //help
@@ -76,7 +77,7 @@ bot.on('message', message => {                                 //pingpong
           
         }});
       }
-    }
+    }save()
   return}                                             //__________________________
   
   if (message.content === (commande+'add') ) {       //add an item
@@ -86,7 +87,7 @@ bot.on('message', message => {                                 //pingpong
         inventories[i].push(' item1')
         message.channel.send('```You get a new Item ! Type “!kq items” to see it !```')
 
-      }}
+      }}save()
     return}                                          //________________________
  
  
@@ -97,7 +98,7 @@ bot.on('message', message => {                                 //pingpong
             profiles[i][4]+= 2000
             message.channel.send('```You received your daily 2000 coins ! Type “!kq profile" to see your current amount of coins.```')
           }
-        }
+        }save()
                                                    //_____________________
 
     }
@@ -113,3 +114,13 @@ bot.on('message', message => {                                 //pingpong
   )
   }
 })                           //_______________________
+
+
+function save(){
+  fs.writeFile('Storage/StorageData.json', JSON.stringify(ProfilesDATA), (err) => {
+    if (err) console.error(err);
+  })
+  fs.writeFile('Storage/items.json', JSON.stringify(itemsDATA), (err) => {
+    if (err) console.error(err);
+  })
+}
