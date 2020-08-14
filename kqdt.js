@@ -117,10 +117,10 @@ bot.on('message', message => {                                 //pingpong
 
 
 function save(){
-  fs.writeFile('Storage/StorageData.json', JSON.stringify(ProfilesDATA), (err) => {
+  fs.writeFile('Storage/StorageData.json', JSON.stringify(profiles), (err) => {
     if (err) console.error(err);
   })
-  fs.writeFile('Storage/items.json', JSON.stringify(itemsDATA), (err) => {
+  fs.writeFile('Storage/items.json', JSON.stringify(inventories), (err) => {
     if (err) console.error(err);
   })
 }
