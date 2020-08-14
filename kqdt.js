@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const commande = '!kq '
 const fs = require('fs');
-const profiles = JSON.parse(fs.readFileSync('Storage/SoulsStorage.json', 'utf8'));
-const inventories = JSON.parse(fs.readFileSync('Storage/Items.json', 'utf8'));
+const profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
+const inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
 
 
 bot.on('ready', function () {
@@ -117,10 +117,10 @@ bot.on('message', message => {                                 //pingpong
 
 
 function save(){
-  fs.writeFile('Storage/SoulsStorage.json', JSON.stringify(profiles), (err) => {
+  fs.writeFile('SoulsStorage.json', JSON.stringify(profiles), (err) => {
     if (err) console.error(err);
   })
-  fs.writeFile('Storage/Items.json', JSON.stringify(inventories), (err) => {
+  fs.writeFile('Items.json', JSON.stringify(inventories), (err) => {
     if (err) console.error(err);
   })
 }
