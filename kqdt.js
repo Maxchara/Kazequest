@@ -114,13 +114,13 @@ bot.on('message', message => {                                 //pingpong
   )
   }
 })                           //_______________________
-
+bot.on('message', message => {  
  if (message.content === (commande+'exist')) { 
    var exists = fs.existsSync('Items.json');
 if (exists) {message.channel.send("bravo tu t'es fait enculé")}
 else{message.channel.send("cheh")}
 
-}
+}}
 
 function save(){
   fs.writeFile('SoulsStorage.json', JSON.stringify(profiles), 'utf8', (err) => {
