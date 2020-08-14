@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const commande = '!kq '
 const fs = require('fs');
-const profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
-const inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
+var profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
+var inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
 
 
 bot.on('ready', function () {
