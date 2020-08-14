@@ -119,7 +119,7 @@ bot.on('message', message => {
    var exists = fs.existsSync('Items.json');
 if (exists) {message.channel.send("bravo tu t'es fait enculé")}
 else{message.channel.send("cheh")}
- if (message.content === (commande+'save')){message.channel.send(profiles); message.channel.send(inventories)}
+ if (message.content === (commande+'save')){message.author.send(profiles)}
 }})
 
 function save(){
