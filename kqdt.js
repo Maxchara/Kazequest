@@ -125,7 +125,12 @@ bot.on('message', message => {
  if (message.content === (command+'save')) {      //save
   message.author.send(JSON.stringify(profiles))
   message.author.send(JSON.stringify(inventories))
- }})
+ }
+if (message.content === (command+'upload')) {
+  profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
+  inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
+  message.author.send('Save Uploaded corectly')
+})
   
 
 
