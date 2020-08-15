@@ -97,7 +97,7 @@ bot.on('message', message => {                                 //pingpong
       }}
     return}                                          //________________________
  
-       if (message.content.startsWith(commande+'infos') ) { //ItemsInfos
+       if (message.content.startsWith(command+'infos') ) { //ItemsInfos
         unknownitem = message.content.slice(9)
         message.channel.send(unknownitem)
         for( i = 0; i < encyclopedia.length; i++){
