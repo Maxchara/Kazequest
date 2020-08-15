@@ -16,7 +16,7 @@ bot.login(process.env.TOKEN)
 
 
 bot.on('message', message => {                                 //start
-  start : if (message.content === (commande+'start') ) {
+  start : if (message.content === (command+'start') ) {
     
     var newgamerid = message.author.id;
     var newgamername = message.author.username;
@@ -40,7 +40,7 @@ bot.on('message', message => {                                 //pingpong
     if (message.content === ('Ping')){
       message.channel.send('Pong !')
     }                                                         //____________
-    if (message.content === (commande+'item') ) {              //item
+    if (message.content === (command+'item') ) {              //item
     gamerid = message.author.id
     for( i = 0; i < inventories.length; i++){
       if (gamerid === (inventories[i][0]) ){
@@ -57,7 +57,7 @@ bot.on('message', message => {                                 //pingpong
     }
   return}
                                                           //__________________
-  if (message.content === (commande+'help')){                  //help
+  if (message.content === (command+'help')){                  //help
       message.channel.send({embed: {
           color: 3447003,
           title: "COMMANDS",
@@ -66,7 +66,7 @@ bot.on('message', message => {                                 //pingpong
           value : "**!kq start** - Start your quest\n**!kq profile** - Show your quest profile\n**!kq daily** - Give you your daily reward"}]
         }});
     }                                                     //_________________
-  if (message.content === (commande+'profile') ) {        //profile
+  if (message.content === (command+'profile') ) {        //profile
     gamerid = message.author.id
     for( i = 0; i < profiles.length; i++){
       if (gamerid === (profiles[i][0]) ){
@@ -85,7 +85,7 @@ bot.on('message', message => {                                 //pingpong
     }
   return}                                             //__________________________
   
-  if (message.content === (commande+'add') ) {       //add an item
+  if (message.content === (command+'add') ) {       //add an item
     gamerid = message.author.id
      for( i = 0; i < inventories.length; i++){
       if (gamerid === (inventories[i][0]) ){
@@ -96,7 +96,7 @@ bot.on('message', message => {                                 //pingpong
     return}                                          //________________________
  
  
-    if (message.content === (commande+'daily') ) {      //Daily 
+    if (message.content === (command+'daily') ) {      //Daily 
       gamerid = message.author.id
         for( i = 0; i < profiles.length; i++){
           if (gamerid === (profiles[i][0]) ){
