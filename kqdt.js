@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const command = '!kq '
 const fs = require('fs');
+const encyclopedia = JSON.parse(fs.readFileSync('encyclopedia.json', 'utf8')); //de la forme NOM, VAlEUR A LA VENTE, POINT D'ATTAQUE, POINT DE DEFENSE, DESCRIPTION
+
 
 var profiles =[]
 var inventories=[]
@@ -95,7 +97,27 @@ bot.on('message', message => {                                 //pingpong
       }}
     return}                                          //________________________
  
- 
+       if (message.content.startsWith(commande+'infos') ) { //ItemsInfos
+        unknownitem = message.content.slice(10)
+        message.channel.send(unknownitem)
+        for( i = 0; i < encyclopedia.length; i++){
+          if(unknownitem == encyclopedia[i][0]){
+            message.channel.send({embed: {
+              color: 3447003,
+              title : `**${encyclopedia[i][0]}**`,
+              description : `
+              **Selling value** : ${encyclopedia[i][1]} 
+              **Attack Points** : ${encyclopedia[i][2]} 
+              **Defense Points** : ${encyclopedia[i][3]} coins
+              **Description** : ${encyclopedia[i][4]} `
+              
+            }})
+          }
+      }
+    }                                                //____________________
+  
+  
+  
     if (message.content === (command+'daily') ) {      //Daily 
       gamerid = message.author.id
         for( i = 0; i < profiles.length; i++){
