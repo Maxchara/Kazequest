@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
-const commande = '!kq '
+const command = '!kq '
 const fs = require('fs');
 
 var profiles =[]
