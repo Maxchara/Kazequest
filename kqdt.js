@@ -124,7 +124,8 @@ bot.on('message', message => {                                 //pingpong
 bot.on('message', message => {     
  if (message.content === (command+'save')) {      //save
   message.author.send(JSON.stringify(profiles))
-  message.author.send(JSON.stringify(inventories))}}
+  message.author.send(JSON.stringify(inventories))
+ }})
   
 
 
