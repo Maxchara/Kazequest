@@ -130,6 +130,7 @@ if (message.content === (command+'upload')) {
   profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
   inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
   message.author.send('Save Uploaded corectly')
+}
 })
   
 
