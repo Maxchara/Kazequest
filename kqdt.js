@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const commande = '!kq '
+const fs = require('fs');
 
 var profiles =[]
 var inventories=[]
@@ -118,3 +119,12 @@ bot.on('message', message => {                                 //pingpong
   )
   }
 })                           //_______________________
+
+
+bot.on('message', message => {     
+ if (message.content === (command+'save')) {      //save
+  message.author.send(JSON.stringify(profiles))
+  message.author.send(JSON.stringify(inventories))}}
+  
+
+
