@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const commande = '!kq '
-const fs = require('fs');
-var profiles = JSON.parse(fs.readFileSync('SoulsStorage.json', 'utf8'));
-var inventories = JSON.parse(fs.readFileSync('Items.json', 'utf8'));
+
+var profiles =[]
+var inventories=[]
 
 
 bot.on('ready', function () {
@@ -21,14 +21,13 @@ bot.on('message', message => {                                 //start
     var newgamername = message.author.username;
       for( i = 0; i < profiles.length; i++){
         if (profiles[i][0]===newgamerid){
-          message.channel.send('```Sorry but you already started a quest ! You can\'t have two profiles.```')
+          message.channel.send('```You already have started a quest```')
           break start};
       };
 
     message.channel.send("```Your quest has started ! Type “!kq profile” to see your coins, and more !```");
     profiles.push([newgamerid, newgamername , 0, 100, 0 , 0]); //de la forme  id, pseudo, xp, nextlvl, wallet, bank
     inventories.push([newgamerid, ' sword']);
-    save()
     return
   }
 })                                                             //________________
@@ -54,7 +53,7 @@ bot.on('message', message => {                                 //pingpong
           value : `${items_a_affiche}`}]
         }});
       }
-    }save()
+    }
   return}
                                                           //__________________
   if (message.content === (commande+'help')){                  //help
@@ -73,11 +72,16 @@ bot.on('message', message => {                                 //pingpong
         message.channel.send({embed: {
           color: 0x0cd3f8,
           title : `**${profiles[i][1]}'s profile**`,
-          description : `**XP** : ${profiles[i][2]} xp points\n**XP to reach the next lvl** : ${profiles[i][3]} xp points\n**Wallet** : ${profiles[i][4]} coins\n**Bank** : ${profiles[i][5]} coins\n**Net worth** : ${profiles[i][5]+profiles[i][4]} coins`
+          description : `
+          **XP** : ${profiles[i][2]} xp points
+          **XP to reach the next lvl** : ${profiles[i][3]} xp points
+          **Wallet** : ${profiles[i][4]} coins
+          **Bank** : ${profiles[i][5]} coins
+          **Net worth** : ${profiles[i][5]+profiles[i][4]} coins`
           
         }});
       }
-    }save()
+    }
   return}                                             //__________________________
   
   if (message.content === (commande+'add') ) {       //add an item
@@ -87,7 +91,7 @@ bot.on('message', message => {                                 //pingpong
         inventories[i].push(' item1')
         message.channel.send('```You get a new Item ! Type “!kq items” to see it !```')
 
-      }}save()
+      }}
     return}                                          //________________________
  
  
@@ -98,11 +102,11 @@ bot.on('message', message => {                                 //pingpong
             profiles[i][4]+= 2000
             message.channel.send('```You received your daily 2000 coins ! Type “!kq profile" to see your current amount of coins.```')
           }
-        }save()
+        }
                                                    //_____________________
 
     }
- if (message.content === (commande+'support')) {       //support
+ if (message.content === (command+'support')) {       //support
   message.channel.send( {embed:{
       color: 0x0fecec,
       title : `You need some help ? Join our support server !`,
@@ -114,19 +118,3 @@ bot.on('message', message => {                                 //pingpong
   )
   }
 })                           //_______________________
-bot.on('message', message => {  
- if (message.content === (commande+'exist')) { 
-   var exists = fs.existsSync('Items.json');
-if (exists) {message.channel.send("bravo tu t'es fait enculé")}
-else{message.channel.send("cheh")}
- if (message.content === (commande+'save')){message.author.send(profiles)}
-}})
-
-function save(){
-  fs.writeFile('SoulsStorage.json', JSON.stringify(profiles), 'utf8', (err) => {
-    if (err) console.error(err);
-  })
-  fs.writeFile('Items.json', JSON.stringify(inventories), 'utf8', (err) => {
-    if (err) console.error(err);
-  })
-}
